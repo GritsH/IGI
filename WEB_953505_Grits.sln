@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEB_953505_Grits", "WEB_953505_Grits.csproj", "{EF985866-5650-43C0-95B2-752EE161F5FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF985866-5650-43C0-95B2-752EE161F5FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF985866-5650-43C0-95B2-752EE161F5FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF985866-5650-43C0-95B2-752EE161F5FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF985866-5650-43C0-95B2-752EE161F5FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DD4A2BFC-6F9E-4096-A2E1-BEB1F8891B88}
+	EndGlobalSection
+EndGlobal
