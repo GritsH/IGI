@@ -35,6 +35,7 @@ namespace WEB_953505_Grits
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +62,10 @@ namespace WEB_953505_Grits
 
             app.UseEndpoints(endpoints =>
             {
+                /*endpoints.MapAreaControllerRoute(
+                    name:"admin_area",
+                    areaName: "admin",
+                    pattern: "Admin/{controller=Home}/{action=Index}/{id?}");*/
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

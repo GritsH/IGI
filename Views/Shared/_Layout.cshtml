@@ -6,41 +6,85 @@
     <title>@ViewData["Title"] - WEB_953505_Grits</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+    <link href="~/lib/font-awesome/css/fontawesome.css" rel="stylesheet" />
+
+
 </head>
+
+
 <body>
+
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WEB_953505_Grits</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
+        <div class="container">
+            <!-- navigation panel-->
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                <!--Site menu-->
+                <a class="navbar-brand" href="#">
+                    WebLabs
+                </a>
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" asp-action="Index" asp-controller="Home"> Lab2</a>
+                    <a class="nav-item nav-link" asp-action="Index" asp-controller="Product"> Catalog </a>
+                    <a class="nav-item nav-link" asp-area="Admin" asp-page="/Index"> Administration </a>
+                </div>
+                <!--Site menu - end-->
+                <!--User info-->
+                <a asp-controller="Cart" asp-action="Index" class="navbar-text ml-auto">
+                    00.0 rub
+                    <i class="fas fa-shopping-cart nav-color">
+                    </i>
+                    (0)
+                </a>
+                <div class="dropdown ml-4 nav-color" >
+                    <div class="dropdown-toggle" id="dropdownMenuBotton"
+                         data-toggle="dropdown"
+                         aria-haspopup="true"
+                         aria-expanded="false">
+                        <img src="images/avatar.jpg" width="30" alt="User" class="rounded" />
+                    </div>
+                    <div class="dropdown-menu"
+                         aria-labelledby="dropdownMenuButton" >
+                        <div class="dropdown-item-text">
+                            <img src="images/avatar.jpg" width="50"
+                                 alt="User"
+                                 class="rounded" />
+                            user@gmail.com
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" asp-controller="Cart" asp-action="Index"> My goods</a>
+                        <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout"> Log off</a>
+                    </div>
+                </div>
+                <!--User info - end-->
+            </nav>
+        </div><!--container - end-->
+    </header><!--header - end-->
+
+
+    <main>
+        @RenderBody()
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <div class="navbar navbar-dark navbar-expand-md bg-dark">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link" href="http://www.facebook.com">
+                        <i class="fab fa-facebook-f fa-2x"></i>
+                    </a>
+                    <a class="nav-item nav-link" href="https://www.twitter.com">
+                        <i class="fab fa-twitter fa-2x"></i>
+                    </a>
+                    <a class="nav-item nav-link" href="https://www.vk.com">
+                        <i class="fab fa-vk fa-2x"></i>
+                    </a>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - WEB_953505_Grits - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
