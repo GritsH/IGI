@@ -1,70 +1,69 @@
 ﻿
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>@ViewData["Text"]</h2>
 
-<main class="container">
-    <h1>Laboratory work 1</h1>
-    <h3>List</h3>
 
-    <ol type="A">
-        @for(int i=1;i<5;i++)
-            {
-                <li> @i element </li>
-            }
-    </ol>
+<h1>Laboratory work 1</h1>
+<h3>List</h3>
 
-    <h3>Form</h3>
+<ol type="A">
+    @for (int i = 1; i < 5; i++)
+    {
+        <li> @i element </li>
+    }
+</ol>
+<hr />
+<h3>Form</h3>
 
-    <form method="post">
-        <select asp-items="@ViewData["Lst"] as SelectList"></select>
-        <div class="form-check" style="margin-left: 190px">
-            <input class="form-check-input" type="checkbox" id="checkBox1" name="checkBox" value="check1" />
-            <label class="form-check-label" for="checkBox1">Check box 1</label><br />
+<form method="post">
+    <select asp-items="@ViewData["Lst"] as SelectList"></select>
+    <div class="form-check" style="margin-left: 190px">
+        <input class="form-check-input" type="checkbox" id="checkBox1" name="checkBox" value="check1" />
+        <label class="form-check-label" for="checkBox1">Check box 1</label><br />
 
-            <input class="form-check-input" type="checkbox" id="checkBox2" name="checkBox" value="check2" />
-            <label class="form-check-label" for="checkBox2">Check box 2</label>
+        <input class="form-check-input" type="checkbox" id="checkBox2" name="checkBox" value="check2" />
+        <label class="form-check-label" for="checkBox2">Check box 2</label>
 
+    </div>
+
+    <div class="container" style="margin-top: 15px">
+        <div class="form-check form-check-inline" style="margin-inline-start: 175px">
+            <input class="form-check-input" type="radio" name="inlineRadio" id="radio1" value="option1" />
+            <label class="form-check-label" for="inlineRadio">Radio 1</label>
         </div>
 
-        <div class="container" style="margin-top: 15px">
-            <div class="form-check form-check-inline" style="margin-inline-start: 175px">
-                <input class="form-check-input" type="radio" name="inlineRadio" id="radio1" value="option1" />
-                <label class="form-check-label" for="inlineRadio">Radio 1</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadio" id="radio2" value="option2" />
-                <label class="form-check-label" for="inlineRadio">Radio 2</label>
-            </div>
-
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadio" id="radio3" value="option3" />
-                <label class="form-check-label" for="inlineRadio">Radio 3</label>
-            </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadio" id="radio2" value="option2" />
+            <label class="form-check-label" for="inlineRadio">Radio 2</label>
         </div>
 
-        <div class="form-group row" style="margin-top: 15px">
-            <label for="inputLogin" class="col-sm-2 col-form-label">Login:</label>
-            <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputLogin" name="login" placeholder="Enter login" />
-            </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadio" id="radio3" value="option3" />
+            <label class="form-check-label" for="inlineRadio">Radio 3</label>
         </div>
-        <div class="form-group row">
-            <label for="inputPassword" class="col-sm-2 col-form-label">Password:</label>
-            <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Enter password" />
-            </div>
-        </div>
+    </div>
 
-        <div class="form-group row">
-            <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary" name="sendBtn">Send</button>
-            </div>
+    <div class="form-group row" style="margin-top: 15px">
+        <label for="inputLogin" class="col-sm-2 col-form-label">Login:</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputLogin" name="login" placeholder="Enter login" />
         </div>
-    </form>
-</main>
+    </div>
+    <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Password:</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Enter password" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary" name="sendBtn">Send</button>
+        </div>
+    </div>
+</form>
+
 

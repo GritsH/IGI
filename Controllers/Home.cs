@@ -16,7 +16,7 @@ namespace WEB_953505_Grits.Controllers
         public Home()
         {
             _listDemo = new List<ListDemo>
-                {
+                {       
                 new ListDemo{ ListItemValue=1, ListItemText="item1"},
                 new ListDemo{ ListItemValue=2, ListItemText="item2"},
                 new ListDemo{ ListItemValue=3, ListItemText="item3"}
