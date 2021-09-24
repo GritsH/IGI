@@ -20,42 +20,16 @@
             <!-- navigation panel-->
             <nav class="navbar navbar-expand-md navbar-dark bg-dark">
                 <!--Site menu-->
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" asp-action="Index"
+                   asp-controller="Home">
                     WebLabs
                 </a>
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" asp-action="Index" asp-controller="Home"> Lab2</a>
-                    <a class="nav-item nav-link" asp-action="Index" asp-controller="Product"> Catalog </a>
-                    <a class="nav-item nav-link" asp-area="Admin" asp-page="/Index"> Administration </a>
+                    @await Component.InvokeAsync("Menu")
                 </div>
                 <!--Site menu - end-->
                 <!--User info-->
-                <a asp-controller="Cart" asp-action="Index" class="navbar-text ml-auto">
-                    00.0 rub
-                    <i class="fas fa-shopping-cart nav-color">
-                    </i>
-                    (0)
-                </a>
-                <div class="dropdown ml-4 nav-color" >
-                    <div class="dropdown-toggle" id="dropdownMenuBotton"
-                         data-toggle="dropdown"
-                         aria-haspopup="true"
-                         aria-expanded="false">
-                        <img src="images/avatar.jpg" width="30" alt="User" class="rounded" />
-                    </div>
-                    <div class="dropdown-menu"
-                         aria-labelledby="dropdownMenuButton" >
-                        <div class="dropdown-item-text">
-                            <img src="images/avatar.jpg" width="50"
-                                 alt="User"
-                                 class="rounded" />
-                            user@gmail.com
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" asp-controller="Cart" asp-action="Index"> My goods</a>
-                        <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout"> Log off</a>
-                    </div>
-                </div>
+                <partial name="_UserPartial" />
                 <!--User info - end-->
             </nav>
         </div><!--container - end-->
