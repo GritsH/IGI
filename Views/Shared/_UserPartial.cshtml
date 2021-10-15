@@ -1,23 +1,49 @@
-﻿<!--User info-->
-@await Component.InvokeAsync("Cart")
-<div class="dropdown ml-4 nav-color">
-    <div class="dropdown-toggle" id="dropdownMenuBotton"
-         data-toggle="dropdown"
-         aria-haspopup="true"
-         aria-expanded="false">
-        <img src="images/avatar.jpg" width="30" alt="User" class="rounded" />
-    </div>
-    <div class="dropdown-menu"
-         aria-labelledby="dropdownMenuButton">
-        <div class="dropdown-item-text">
-            <img src="images/avatar.jpg" width="50"
-                 alt="User"
-                 class="rounded" />
-            user@gmail.com
+﻿@using Microsoft.AspNetCore.Identity;
+@using WEB_953505_Grits.Entities;
+@inject SignInManager<ApplicationUser> signInManager;
+<!--User info-->
+@if (signInManager.IsSignedIn(User))
+{
+    @await Component.InvokeAsync("Cart")
+    <div class="dropdown ml-4 nav-color">
+        <div class="dropdown-toggle" id="dropdownMenuBotton"
+             data-toggle="dropdown"
+             aria-haspopup="true"
+             aria-expanded="false">
+            <img src="@Url.Action("GetAvatar", "Image")" width="30" alt="User" class="rounded bg-light" />
+            
         </div>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" asp-controller="Cart" asp-action="Index"> My goods</a>
-        <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout"> Log off</a>
+        <div class="dropdown-menu"
+             aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-item-text">
+                <img src="@Url.Action("GetAvatar", "Image")" width="50"
+                     alt="User"
+                     class="rounded" />
+                @User.Identity.Name
+            </div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" asp-controller="Cart" asp-action="Index"> My goods</a>
+            <form asp-area="Identity" asp-page="/Account/Logout"
+                  asp-route-returnurl ="@ViewContext.HttpContext.Request.Path">
+                <input type="submit" value="Log off" class="dropdown-item" />
+            </form>
+            <!--a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout"> Log off</a-->
+        </div>
     </div>
-</div>
-<!--User info - end-->
+    <!--User info - end-->
+}
+else
+            {
+                 <ul class="nav navbar-nav ml-auto">
+                     <li><a class="nav-item nav-link"
+                            asp-area="Identity"
+                            asp-page="/Account/Login">
+                         Log in
+                         </a></li>
+                     <li><a class="nav-item nav-link"
+                            asp-area="Identity"
+                            asp-page="/Account/Register">
+                         Register
+                         </a></li>
+                 </ul>
+            }
