@@ -1,0 +1,53 @@
+﻿@model ListViewModel<Bouquet>
+
+@{
+    ViewData["Title"] = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var categories = ViewData["Groups"] as IEnumerable<BouquetGroup>;
+    int currentGroup = (int)ViewData["CurrentGroup"];
+    var text = currentGroup != 0
+    ? categories
+    .FirstOrDefault(g => g.BouquetGroupId == currentGroup)?
+    .GroupName
+    : "All";
+}
+
+<div class="row">
+    <div class="col-2">
+        <div class="dropdown mt-2">
+            <a class="btn btn-secondary dropdown-toggle"
+               asp-action="Index" asp-controller="Product"
+               role="button"
+               id="dropdownMenuLink"
+               data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                @text
+            </a>
+            <div class="dropdown-menu"
+                 aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item"
+                   asp-action="Index"
+                   asp-controller="Product">All</a>
+                @foreach (var item in categories)
+                {
+                    <a class="dropdown-item"
+                       asp-action="Index"
+                       asp-controller="Product"
+                       asp-route-group="@item.BouquetGroupId"
+                       asp-route-pageNo="1">
+                        @item.GroupName
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-10">
+        <div class="card-deck">
+            @foreach (var item in Model)
+            {
+                <partial name="_ListItemPartial" model="@item" />
+            }
+        </div>
+    </div>
+</div>

@@ -26,7 +26,7 @@ namespace WEB_953505_Grits.Controllers
                 return File(user.AvatarImage, "image/...");
             else
             {
-                var avatarPath = "/Images/anonymous.jpg";
+                var avatarPath = "/Images/avatar.jpg";
                 return File(_env.WebRootFileProvider
                 .GetFileInfo(avatarPath)
                 .CreateReadStream(), "image/...");

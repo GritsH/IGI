@@ -11,7 +11,7 @@
              aria-haspopup="true"
              aria-expanded="false">
             <img src="@Url.Action("GetAvatar", "Image")" width="30" alt="User" class="rounded bg-light" />
-            
+
         </div>
         <div class="dropdown-menu"
              aria-labelledby="dropdownMenuButton">
@@ -24,7 +24,7 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" asp-controller="Cart" asp-action="Index"> My goods</a>
             <form asp-area="Identity" asp-page="/Account/Logout"
-                  asp-route-returnurl ="@ViewContext.HttpContext.Request.Path">
+                  asp-route-returnurl="@ViewContext.HttpContext.Request.Path">
                 <input type="submit" value="Log off" class="dropdown-item" />
             </form>
             <!--a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout"> Log off</a-->
@@ -33,17 +33,21 @@
     <!--User info - end-->
 }
 else
-            {
-                 <ul class="nav navbar-nav ml-auto">
-                     <li><a class="nav-item nav-link"
-                            asp-area="Identity"
-                            asp-page="/Account/Login">
-                         Log in
-                         </a></li>
-                     <li><a class="nav-item nav-link"
-                            asp-area="Identity"
-                            asp-page="/Account/Register">
-                         Register
-                         </a></li>
-                 </ul>
-            }
+{
+    <ul class="nav navbar-nav ml-auto">
+        <li>
+            <a class="nav-item nav-link"
+               asp-area="Identity"
+               asp-page="/Account/Login">
+                Log in
+            </a>
+        </li>
+        <li>
+            <a class="nav-item nav-link"
+               asp-area="Identity"
+               asp-page="/Account/Register">
+                Register
+            </a>
+        </li>
+    </ul>
+}

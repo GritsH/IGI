@@ -42,7 +42,7 @@ namespace WEB_953505_Grits
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = false;
-                options.Password.RequireLowercase = false;
+                options.Password.RequireLowercase = false; 
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireDigit = false;

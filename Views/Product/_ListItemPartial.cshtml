@@ -1,0 +1,28 @@
+﻿@model Bouquet
+<div class='card m-2 p-1 text-center col-4'>
+    <img src="~/Images/@Model.Image"
+         alt='NoImage'
+         class="card-img-top" />
+    <div class="card-body">
+        <h5 class="card-title">
+            @Model.BouquetName
+        </h5>
+        <p class="card-text">
+            @Model.Description
+        </p>
+        @{
+            var request = ViewContext.HttpContext.Request;
+            var returnUrl = request.Path +
+            request.QueryString.ToUriComponent();
+        }
+        <p class="mt-2">
+            <a asp-action="Add"
+               asp-controller="Cart"
+               asp-route-id="@Model.BouquetId"
+               asp-route-returnUrl="@returnUrl"
+               class="btn btn-primary">
+                <i class="fa fa-shopping-cart"></i> To cart
+            </a>
+        </p>
+    </div>
+</div>
