@@ -9,6 +9,8 @@ namespace WEB_953505_Grits.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Bouquet> Bouquets { get; set; }
+        public DbSet<BouquetGroup> BouquetGroups { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
