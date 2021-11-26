@@ -20,8 +20,7 @@ namespace WEB_953505_Grits.TagHelpers
         public override void Process(TagHelperContext context,
         TagHelperOutput output)
         {
-            var uri = _linkGenerator.GetPathByAction(ImgAction,
-            ImgController);
+            var uri = _linkGenerator.GetPathByAction(ImgAction, ImgController);
             output.Attributes.Add("src", uri);
         }
     }

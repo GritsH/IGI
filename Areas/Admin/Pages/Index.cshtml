@@ -1,0 +1,60 @@
+﻿@page
+@model WEB_953505_Grits.Areas.Admin.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p class="mt-2">
+    <a asp-page="Create" class="btn-outline-info">
+    <span class="fa fa-plus-circle">Add new</span></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bouquet[0].BouquetName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bouquet[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bouquet[0].Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bouquet[0].Group)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Bouquet) {
+        <tr>
+            <td>
+                <img src="~/images/@item.Image" alt="NoImage" wdth="20" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BouquetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Group.BouquetGroupId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.BouquetId" class="btn btn-outline-info">
+                <span class="fas fa-edit"></span></a> 
+                <a asp-page="./Delete" asp-route-id="@item.BouquetId" class="btn btn-danger">
+                <span class="fas fa-trash-alt"></span></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -15,6 +15,11 @@ using WEB_953505_Grits.Data;
 using WEB_953505_Grits.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using WEB_953505_Grits.Services;
+using WEB_953505_Grits.Models;
+using Microsoft.Extensions.Logging;
+using WEB_953505_Grits.Extensions;
 
 namespace WEB_953505_Grits
 {
@@ -54,12 +59,25 @@ namespace WEB_953505_Grits
                 options.LoginPath = $"/Identity/Account/Login";
                 options.LogoutPath = $"/Identity/Account/Logout";
             });
+
+            services.AddDistributedMemoryCache();
+            services.AddSession(opt =>
+            {
+                opt.Cookie.HttpOnly = true;
+                opt.Cookie.IsEssential = true;
+            });
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<Cart>(sp => CartService.GetCart(sp));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
-            ApplicationDbContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+            ApplicationDbContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager,
+            ILoggerFactory logger)
         {
+            logger.AddFile("Logs/log-{Date}.txt");
+            app.UseFileLogging();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -77,6 +95,7 @@ namespace WEB_953505_Grits
             app.UseRouting();
 
             app.UseAuthentication();
+            app.UseSession();
             app.UseAuthorization();
 
             DbInitializer.Seed(context, userManager, roleManager).Wait();

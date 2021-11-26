@@ -2,10 +2,13 @@
   "version": "1.0",
   "defaultProvider": "cdnjs",
   "libraries": [
-    
     {
       "library": "font-awesome@5.11.2",
       "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "library": "bs-custom-file-input@1.3.4",
+      "destination": "wwwroot/lib/bs-custom-file-input/"
     }
   ]
 }

@@ -53,8 +53,7 @@ namespace WEB_953505_Grits.TagHelpers
                         pageNo = i,
                         group = GroupId == 0 ? null : GroupId
                     });
-                var item = GetPagerItem(
-                    url: url, text: i.ToString(),
+                var item = GetPagerItem(url: url, text: i.ToString(),
                     active: i == PageCurrent, disabled: i == PageCurrent);
                 ulTag.InnerHtml.AppendHtml(item);
 

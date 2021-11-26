@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CartItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cart</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/Images/@item.Bouquet.Image" alt="No image"
+                         width="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Bouquet.BouquetName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    <a asp-controller="Cart"
+                       asp-action="Delete"
+                       asp-route-id="@item.Bouquet.BouquetId"
+                       class="btn btn-outline-danger">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

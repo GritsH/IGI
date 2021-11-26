@@ -12,8 +12,7 @@
         </p>
         @{
             var request = ViewContext.HttpContext.Request;
-            var returnUrl = request.Path +
-            request.QueryString.ToUriComponent();
+            var returnUrl = request.Path + request.QueryString.ToUriComponent();
         }
         <p class="mt-2">
             <a asp-action="Add"
